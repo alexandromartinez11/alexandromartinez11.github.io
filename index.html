@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,125 +16,221 @@
       font-size: 1.15rem; line-height: 1.5;
       text-shadow: 0 0 6px rgba(57,255,106,.35);
     }
-    /* CRT scanlines + vignette over everything */
     body::before {
       content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 10;
       background:
         repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 2px, rgba(0,0,0,.28) 3px),
         radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%);
     }
-    .screen { border: 2px solid var(--line); border-radius: 10px; padding: 22px 24px 28px;
-      box-shadow: 0 0 24px rgba(57,255,106,.15), inset 0 0 30px rgba(57,255,106,.06); animation: flicker .6s ease-out 1; }
-    @keyframes flicker { 0%{opacity:0} 20%{opacity:.9} 35%{opacity:.4} 55%{opacity:1} 70%{opacity:.8} 100%{opacity:1} }
-
-    .hero { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-bottom: 10px; }
-    .hero img { width: 140px; height: 140px; object-fit: cover; object-position: 50% 25%; border-radius: 8px; border: 2px solid var(--accent);
-      box-shadow: 0 0 16px rgba(57,255,106,.35); }
-    h1 { color: var(--accent); font-weight: normal; font-size: 2.4rem; line-height: 1.1; margin: 0 0 4px; text-shadow: 0 0 10px rgba(57,255,106,.5); }
+    .screen {
+      border: 2px solid var(--line); border-radius: 10px;
+      padding: 22px 24px 28px;
+      box-shadow: 0 0 24px rgba(57,255,106,.15), inset 0 0 30px rgba(57,255,106,.06);
+      animation: flicker .6s ease-out 1;
+    }
+    @keyframes flicker {
+      0%{opacity:0} 20%{opacity:.9} 35%{opacity:.4}
+      55%{opacity:1} 70%{opacity:.8} 100%{opacity:1}
+    }
+    .hero {
+      display: flex; align-items: center; gap: 22px;
+      flex-wrap: wrap; margin-bottom: 10px;
+    }
+    .hero img {
+      width: 140px; height: 140px; object-fit: cover;
+      object-position: 50% 25%; border-radius: 8px;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 16px rgba(57,255,106,.35);
+    }
+    h1 {
+      color: var(--accent); font-weight: normal; font-size: 2.4rem;
+      line-height: 1.1; margin: 0 0 4px;
+      text-shadow: 0 0 10px rgba(57,255,106,.5);
+    }
     .role { color: var(--amber); font-size: 1.4rem; margin: 0 0 4px; }
-    h2 { color: var(--amber); font-weight: normal; font-size: 1.5rem; margin: 34px 0 6px; text-shadow: 0 0 8px rgba(255,176,0,.45); }
-    h2::before { content: "[ "; } h2::after { content: " ]"; }
+    h2 {
+      color: var(--amber); font-weight: normal; font-size: 1.5rem;
+      margin: 34px 0 6px;
+      text-shadow: 0 0 8px rgba(255,176,0,.45);
+    }
+    h2::before { content: "[ "; }
+    h2::after { content: " ]"; }
     h2 + * { border-top: 1px dashed var(--line); padding-top: 10px; }
-    h3 { color: var(--accent); font-weight: normal; font-size: 1.25rem; margin: 18px 0 0; }
+    h3 {
+      color: var(--accent); font-weight: normal;
+      font-size: 1.25rem; margin: 18px 0 0;
+    }
     h3::before { content: "> "; color: var(--dim); }
     .meta { color: var(--dim); margin: 0 0 6px; }
     ul { list-style: none; padding-left: 0; margin: 6px 0 0; }
-    li { padding-left: 1.4em; text-indent: -1.4em; margin-bottom: 6px; }
+    li {
+      padding-left: 1.4em; text-indent: -1.4em;
+      margin-bottom: 6px;
+    }
     li::before { content: "+ "; color: var(--amber); }
-    a { color: var(--link); text-decoration: none; border-bottom: 1px dotted var(--link); text-shadow: 0 0 6px rgba(92,240,255,.4); }
-    a:hover, a:focus-visible { color: var(--bg); background: var(--link); outline: none; text-shadow: none; }
-    .cursor { display:inline-block; width:.6em; height:1.05em; background:var(--accent); vertical-align:text-bottom; animation: blink 1s steps(1) infinite; }
+    a {
+      color: var(--link); text-decoration: none;
+      border-bottom: 1px dotted var(--link);
+      text-shadow: 0 0 6px rgba(92,240,255,.4);
+    }
+    a:hover, a:focus-visible {
+      color: var(--bg); background: var(--link);
+      outline: none; text-shadow: none;
+    }
+    .cursor {
+      display:inline-block; width:.6em; height:1.05em;
+      background:var(--accent); vertical-align:text-bottom;
+      animation: blink 1s steps(1) infinite;
+    }
     @keyframes blink { 50% { opacity: 0; } }
+
+    @media (max-width: 500px) {
+      body { padding: 18px 12px 40px; }
+      .screen { padding: 18px 16px 24px; }
+      .hero img { width: 110px; height: 110px; }
+      h1 { font-size: 2rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .screen { animation: none; }
+      .cursor { animation: none; }
     }
-    @media print { body::before { display:none; } body, .screen { background:#fff; color:#000; text-shadow:none; box-shadow:none; border:0; } }
+
+    @media print {
+      body::before { display:none; }
+      body, .screen {
+        background:#fff; color:#000;
+        text-shadow:none; box-shadow:none; border:0;
+      }
+      h1, h2, h3, .role, .meta { color:#000; text-shadow:none; }
+      a { color:#000; }
+    }
   </style>
 </head>
+
 <body>
 <main class="screen">
+
 <header class="hero">
   <img src="headshot.jpg" alt="Photo of Alexandro Martinez" width="140" height="140">
   <div>
     <h1>Alexandro Martinez</h1>
     <p class="role">Cybersecurity Analyst</p>
-    <p class="meta">Atlanta, Georgia | U.S. Citizen | <a href="https://www.linkedin.com/in/alexandromartinez-cybersecurity">LinkedIn</a></p>
+    <p class="meta">
+      Atlanta, Georgia | U.S. Citizen |
+      <a href="https://www.linkedin.com/in/alexandromartinez-cybersecurity">LinkedIn</a>
+    </p>
   </div>
 </header>
 
-  <h2>How I Work</h2>
-  <p>I work on the defensive side of security: triaging alerts, closing cloud misconfigurations, and building data loss policies that keep sensitive data from leaving. I started on an IT help desk, so I care about clear communication with the people I support and fixes that don't get in their way. I'm completing an M.S. at Georgia Tech while working in the field.</p>
+<h2>How I Work</h2>
+<p>
+  I work on the defensive side of security: triaging alerts, closing cloud
+  misconfigurations, and building data loss policies that keep sensitive
+  data from leaving. I started on an IT help desk, so I care about clear
+  communication with the people I support and fixes that don't get in their
+  way. I'm completing an M.S. at Georgia Tech while working in the field.
+</p>
 
-  <h2>Education</h2>
-  <div>
-    <h3>Georgia Institute of Technology, Atlanta, GA</h3>
-    <p class="meta">M.S. in Cybersecurity (GPA 3.5/4.0), expected May 2027</p>
-    <h3>Kennesaw State University, Kennesaw, GA</h3>
-    <p class="meta">M.S. in Cybersecurity (GPA 3.9/4.0), December 2023<br>
-    B.B.A. in Information Systems, December 2021</p>
-  </div>
+<h2>Education</h2>
+<div>
+  <h3>Georgia Institute of Technology, Atlanta, GA</h3>
+  <p class="meta">M.S. in Cybersecurity (GPA 3.5/4.0), expected May 2027</p>
 
-  <h2>Certifications</h2>
+  <h3>Kennesaw State University, Kennesaw, GA</h3>
+  <p class="meta">
+    M.S. in Cybersecurity (GPA 3.9/4.0), December 2023<br>
+    B.B.A. in Information Systems, December 2021
+  </p>
+</div>
+
+<h2>Certifications</h2>
+<ul>
+  <li>CompTIA Security+ (SY0-701)</li>
+  <li>CompTIA CySA+</li>
+  <li>CrowdStrike Certified Falcon Practitioner (CCFP)</li>
+  <li>AWS Certified Cloud Practitioner</li>
+  <li>Microsoft Azure Fundamentals (AZ-900)</li>
+  <li>Microsoft Security, Compliance, and Identity Fundamentals (SC-900)</li>
+  <li>Microsoft Azure AI Fundamentals (AI-900)</li>
+  <li>Linux Professional Institute Linux Essentials (010-160)</li>
+</ul>
+
+<h2>Professional Experience</h2>
+<div>
+  <h3>Cox Enterprises: Cybersecurity Analyst</h3>
+  <p class="meta">Atlanta, GA | May 2023 to present</p>
   <ul>
-    <li>CompTIA Security+ (SY0-701)</li>
-    <li>CompTIA CySA+</li>
-    <li>CrowdStrike Certified Falcon Practitioner (CCFP)</li>
-    <li>AWS Certified Cloud Practitioner</li>
-    <li>Microsoft Azure Fundamentals (AZ-900)</li>
-    <li>Microsoft Security, Compliance, and Identity Fundamentals (SC-900)</li>
-    <li>Microsoft Azure AI Fundamentals (AI-900)</li>
-    <li>Linux Professional Institute Linux Essentials (010-160)</li>
+    <li>Triage and respond to SaaS threat detection alerts in AppOmni and CrowdStrike Falcon Shield, with a focus on Workday, reducing time to respond to potential security incidents.</li>
+    <li>Designed and deployed custom Microsoft Purview DLP policies that detect and block unauthorized transfers of PII, PCI, credit card, and HIPAA-regulated data.</li>
+    <li>Identify and remediate CVEs and misconfigurations across 3 cloud platforms (AWS, Azure, OCI) using Wiz, strengthening overall cloud security posture.</li>
+    <li>Investigate and remediate SOC incidents using Google SecOps, Proofpoint, and Microsoft Defender, covering threat detection, email security, and endpoint protection.</li>
   </ul>
 
-  <h2>Professional Experience</h2>
-  <div>
-    <h3>Cox Enterprises: Cybersecurity Analyst</h3>
-    <p class="meta">Atlanta, GA | May 2023 to present</p>
-    <ul>
-      <li>Triage and respond to SaaS threat detection alerts in AppOmni and CrowdStrike Falcon Shield, with a focus on Workday, reducing time to respond to potential security incidents.</li>
-      <li>Designed and deployed custom Microsoft Purview DLP policies that detect and block unauthorized transfers of PII, PCI, credit card, and HIPAA-regulated data.</li>
-      <li>Identify and remediate CVEs and misconfigurations across 3 cloud platforms (AWS, Azure, OCI) using Wiz, strengthening overall cloud security posture.</li>
-      <li>Investigate and remediate SOC incidents using Google SecOps, Proofpoint, and Microsoft Defender, covering threat detection, email security, and endpoint protection.</li>
-    </ul>
-    <h3>Kennesaw State University: IT Help Desk Assistant</h3>
-    <p class="meta">Kennesaw, GA | December 2021 to May 2023</p>
-    <ul>
-      <li>Resolved 1,000+ IT support tickets in ServiceNow while consistently meeting SLA targets and maintaining high user satisfaction.</li>
-      <li>Guided users through multi-factor authentication enrollment with Duo Mobile, strengthening account security.</li>
-      <li>Resolved email delivery, login, and access permission issues with a high first-response resolution rate.</li>
-    </ul>
-  </div>
-
-  <h2>Internships</h2>
-  <div>
-    <h3>Children's Healthcare of Atlanta: Cybersecurity Intern</h3>
-    <p class="meta">Atlanta, GA | March 2023 to May 2023</p>
-    <ul>
-      <li>Investigated 200+ reported phishing emails using Cisco Threat Grid and Cisco Umbrella, identifying threats and recommending mitigations.</li>
-      <li>Supported phishing simulation campaigns in KnowBe4 to raise security awareness and reduce user click rates.</li>
-      <li>Assessed medical device vulnerabilities by cross-referencing Palo Alto Zingbox, the CISA vulnerability database, and MITRE ATT&amp;CK to document potential CVEs.</li>
-    </ul>
-    <h3>OnSolve (now Crisis24): Information Technology Intern</h3>
-    <p class="meta">Alpharetta, GA | May 2022 to March 2023</p>
-    <ul>
-      <li>Administered user accounts, licenses, and groups in the Microsoft 365 Admin Center, ensuring accurate provisioning and de-provisioning.</li>
-      <li>Supported identity and access management in Okta, including onboarding and offboarding, SSO integration, and MFA troubleshooting.</li>
-      <li>Managed mailbox permissions, distribution groups, and email routing policies in Exchange Admin Center, improving cross-department communication.</li>
-    </ul>
-  </div>
-
-  <h2>Skills</h2>
+  <h3>Kennesaw State University: IT Help Desk Assistant</h3>
+  <p class="meta">Kennesaw, GA | December 2021 to May 2023</p>
   <ul>
-    <li><b>Threat detection and response:</b> Google SecOps (SIEM), CrowdStrike Falcon Shield, Microsoft Defender, AppOmni, SOC alert triage and incident remediation</li>
-    <li><b>Cloud security:</b> AWS, Azure, OCI, Wiz, CVE and misconfiguration remediation</li>
-    <li><b>Data protection:</b> Microsoft Purview DLP, McAfee, Zscaler</li>
-    <li><b>Email and phishing defense:</b> Proofpoint, Cisco Umbrella, Cisco Threat Grid, KnowBe4</li>
-    <li><b>Identity and access management:</b> Okta, Azure AD, Duo MFA, Microsoft 365 and Exchange administration</li>
-    <li><b>Vulnerability and threat intelligence:</b> CISA vulnerability database, MITRE ATT&amp;CK, Palo Alto Zingbox</li>
-    <li><b>Compliance and frameworks:</b> HIPAA, PCI, NIST</li>
-    <li><b>Systems and scripting:</b> Linux, Python, ServiceNow</li>
-    <li><b>Languages:</b> English, Spanish (fluent, bilingual)</li>
+    <li>Resolved 1,000+ IT support tickets in ServiceNow while consistently meeting SLA targets and maintaining high user satisfaction.</li>
+    <li>Guided users through multi-factor authentication enrollment with Duo Mobile, strengthening account security.</li>
+    <li>Resolved email delivery, login, and access permission issues with a high first-response resolution rate.</li>
   </ul>
+</div>
+
+<h2>Internships</h2>
+<div>
+  <h3>Children's Healthcare of Atlanta: Cybersecurity Intern</h3>
+  <p class="meta">Atlanta, GA | March 2023 to May 2023</p>
+  <ul>
+    <li>Investigated 200+ reported phishing emails using Cisco Threat Grid and Cisco Umbrella, identifying threats and recommending mitigations.</li>
+    <li>Supported phishing simulation campaigns in KnowBe4 to raise security awareness and reduce user click rates.</li>
+    <li>Assessed medical device vulnerabilities by cross-referencing Palo Alto Zingbox, the CISA vulnerability database, and MITRE ATT&amp;CK to document potential CVEs.</li>
+  </ul>
+
+  <h3>OnSolve (now Crisis24): Information Technology Intern</h3>
+  <p class="meta">Alpharetta, GA | May 2022 to March 2023</p>
+  <ul>
+    <li>Administered user accounts, licenses, and groups in the Microsoft 365 Admin Center, ensuring accurate provisioning and de-provisioning.</li>
+    <li>Supported identity and access management in Okta, including onboarding and offboarding, SSO integration, and MFA troubleshooting.</li>
+    <li>Managed mailbox permissions, distribution groups, and email routing policies in Exchange Admin Center, improving cross-department communication.</li>
+  </ul>
+</div>
+
+<h2>Skills</h2>
+<ul>
+  <li><b>Threat detection and response:</b> Google SecOps (SIEM), CrowdStrike Falcon Shield, Microsoft Defender, AppOmni, SOC alert triage and incident remediation</li>
+  <li><b>Cloud security:</b> AWS, Azure, OCI, Wiz, CVE and misconfiguration remediation</li>
+  <li><b>Data protection:</b> Microsoft Purview DLP, McAfee, Zscaler</li>
+  <li><b>Email and phishing defense:</b> Proofpoint, Cisco Umbrella, Cisco Threat Grid, KnowBe4</li>
+  <li><b>Identity and access management:</b> Okta, Azure AD, Duo MFA, Microsoft 365 and Exchange administration</li>
+  <li><b>Vulnerability and threat intelligence:</b> CISA vulnerability database, MITRE ATT&amp;CK, Palo Alto Zingbox</li>
+  <li><b>Compliance and frameworks:</b> HIPAA, PCI, NIST</li>
+  <li><b>Systems and scripting:</b> Linux, Python, ServiceNow</li>
+  <li><b>Languages:</b> English, Spanish (fluent, bilingual)</li>
+</ul>
+
+<!-- NEW SECTION: HOBBIES -->
+<h2>Hobbies</h2>
+<ul>
+  <li><b>Travel:</b> Visited 10 countries and enjoy exploring different cultures.</li>
+  <li><b>Soccer:</b> Avid soccer fan who has attended 10+ World Cup matches.</li>
+  <li><b>Chess:</b> Enjoy strategic thinking and competitive chess.</li>
+  <li><b>Photography:</b> Passionate about capturing experiences and memorable moments.</li>
+</ul>
+
+<!-- NEW SECTION: VOLUNTEER EXPERIENCE -->
+<h2>Volunteer Experience</h2>
+<div>
+  <h3>Greening Youth Foundation</h3>
+  <p class="meta">Volunteer Support</p>
+
+  <h3>Girls Inc.</h3>
+  <p class="meta">Food Distribution Volunteer</p>
+
+  <h3>Hands On Atlanta</h3>
+  <p class="meta">Packing Volunteer</p>
+</div>
+
 </main>
 </body>
 </html>
+
