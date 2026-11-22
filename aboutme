@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>About Me | Alexandro Martinez</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html">alexandro<span>@</span>martinez<span>:~$</span></a>
+    <nav>
+      <a class="on" href="about.html">About Me</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/alexandromartinez-cybersecurity" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+  </header>
+  <div class="hero">
+    <img src="IMG_0209.jpg" alt="Photo of Alexandro Martinez">
+    <div>
+      <h1>About Me</h1>
+      <p class="tag">Alexandro Martinez · Cybersecurity Analyst</p>
+      <ul class="chips">
+      <li class="chip">Atlanta, GA</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="card">
+    <h2>who_i_am</h2>
+    <p style="margin:0">I’m a cybersecurity analyst at Cox Enterprises, where I work on cloud security, data loss prevention, and SOC incident response. I’m completing an M.S. in Cybersecurity at Georgia Tech, and I hold certifications including Security+, CySA+, and the CrowdStrike Certified Falcon Practitioner.</p>
+  </section>
+
+  <section class="card">
+    <h2>hobbies</h2>
+    <div class="grid2">
+      <div class="mini"><b>Travel</b><span>Visited 10 countries</span></div>
+      <div class="mini"><b>Soccer</b><span>Avid fan who has attended 10+ World Cup matches</span></div>
+      <div class="mini"><b>Chess</b></div>
+      <div class="mini"><b>Photography</b></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
