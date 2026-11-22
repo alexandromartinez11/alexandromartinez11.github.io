@@ -12,7 +12,6 @@
     <a class="brand" href="index.html">alexandro<span>@</span>martinez<span>:~$</span></a>
     <nav>
       <a class="on" href="about.html">About Me</a>
-      <a href="contact.html">Contact</a>
       <a href="https://www.linkedin.com/in/alexandromartinez-cybersecurity" target="_blank" rel="noopener">LinkedIn ↗</a>
     </nav>
   </header>
@@ -22,24 +21,41 @@
       <h1>About Me</h1>
       <p class="tag">Alexandro Martinez · Cybersecurity Analyst</p>
       <ul class="chips">
-      <li class="chip">Atlanta, GA</li>
+        <li class="chip">Born and raised in Georgia</li>
       </ul>
     </div>
   </div>
 
   <section class="card">
     <h2>who_i_am</h2>
-    <p style="margin:0">I’m a cybersecurity analyst at Cox Enterprises, where I work on cloud security, data loss prevention, and SOC incident response. I’m completing an M.S. in Cybersecurity at Georgia Tech, and I hold certifications including Security+, CySA+, and the CrowdStrike Certified Falcon Practitioner.</p>
+    <p style="margin-top:0">I’m a cybersecurity analyst with more than four years of experience in IT and security. I work on cloud security, data loss prevention, and SOC incident response at Cox Enterprises.</p>
+    <p style="margin-bottom:0">I earned a B.B.A. in Information Systems and an M.S. in Cybersecurity from Kennesaw State University, and I’m now pursuing a second M.S. in Cybersecurity at Georgia Tech. I was born and raised in Georgia.</p>
   </section>
 
   <section class="card">
-    <h2>hobbies</h2>
+    <h2>outside_of_work</h2>
     <div class="grid2">
-      <div class="mini"><b>Travel</b><span>Visited 10 countries</span></div>
-      <div class="mini"><b>Soccer</b><span>Avid fan who has attended 10+ World Cup matches</span></div>
-      <div class="mini"><b>Chess</b></div>
-      <div class="mini"><b>Photography</b></div>
+      <div class="mini"><b>Chess</b><span>I love to play</span></div>
+      <div class="mini"><b>Soccer</b><span>I love watching it, and I’ve attended 10 World Cup games, including the 2022 and 2026 tournaments</span></div>
+      <div class="mini"><b>Photography</b><span>I love taking photos</span></div>
+      <div class="mini"><b>Traveling</b><span>It’s my favorite way to learn about the world</span></div>
     </div>
+  </section>
+
+  <section class="card">
+    <h2>places_ive_been</h2>
+    <p style="margin-top:0">I’ve been to 10 countries so far, including:</p>
+    <ul class="chips">
+      <li class="chip">France</li>
+      <li class="chip">Spain</li>
+      <li class="chip">Colombia</li>
+      <li class="chip">Panama</li>
+      <li class="chip">Peru</li>
+      <li class="chip">Canada</li>
+      <li class="chip">Qatar</li>
+      <li class="chip">Chile</li>
+      <li class="chip">Mexico</li>
+    </ul>
   </section>
 </div>
 </body>
